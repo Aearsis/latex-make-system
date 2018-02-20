@@ -1,0 +1,10 @@
+
+ROOT = $(dir $(lastword ${MAKEFILE_LIST}))
+
+include ${ROOT}common.mk
+include ${ROOT}bibtex.mk
+include ${ROOT}index.mk
+include ${ROOT}spellcheck.mk
+include ${ROOT}images.mk
+
+# vim: ft=make
