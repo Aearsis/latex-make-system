@@ -9,7 +9,7 @@ ifndef LATEX_COMMON
 LATEX_COMMON=guard
 
 LATEX      ?= pdflatex
-LATEXFLAGS ?= -halt-on-error -interaction=nonstopmode -shell-escape -recorder
+LATEXFLAGS ?= -halt-on-error -file-line-error  -interaction=nonstopmode -shell-escape -recorder
 
 BUILDDIR   ?= build
 
