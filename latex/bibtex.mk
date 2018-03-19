@@ -18,15 +18,15 @@ define bib-include
 $(eval ${BUILDDIR}/${BIB}: $(1))
 endef
 
-# The bibtex rule
-${BUILDDIR}/%.bbl: ${BUILDDIR}/%.aux
-	${Q}$(call inform,bibtex)
-	${Q}cd "${BUILDDIR}" && ${chronic} ${BIBTEX} "$*"
-
-# Dependency wiring
 define bibtex-rule
+# Dependency wiring
 ${BUILDDIR}/$(2).aux: ${BUILDDIR}/${BIB}
 ${BUILDDIR}/$(2).pdf: ${BUILDDIR}/$(2).bbl
+
+# The bibtex rule
+${BUILDDIR}/$(2).bbl: ${BUILDDIR}/$(2).aux
+	${Q}$(call informp,bibtex,$(2).aux,$(2).bbl)
+	${Q}cd "${BUILDDIR}" && ${chronic} ${BIBTEX} "$(2)"
 endef
 
 LATEX_SELF_DEPS += bbl bib

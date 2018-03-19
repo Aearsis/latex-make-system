@@ -3,6 +3,7 @@ ROOT = $(dir $(lastword ${MAKEFILE_LIST}))
 
 include ${ROOT}common.mk
 include ${ROOT}bibtex.mk
+include ${ROOT}biblatex.mk
 include ${ROOT}index.mk
 include ${ROOT}glossaries.mk
 include ${ROOT}spellcheck.mk
