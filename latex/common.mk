@@ -51,7 +51,9 @@ $(shell which $(1) >/dev/null 2>/dev/null && echo $(1))
 endef
 
 # Suppresses output of verbose command if they complete successfully - optional but cool
+ifndef DEBUG
 chronic = $(call installed,chronic)
+endif
 
 # Do not remove intermediately built files
 .SECONDARY:
