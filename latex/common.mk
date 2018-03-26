@@ -75,7 +75,7 @@ endef
 ${BUILDDIR}/.deps: ;
 
 define calc-md5
-	(grep -E '^OUTPUT ${LATEX_SELF_DEPS_REGEX}$$' <${BUILDDIR}/$(1).fls | sort -u | cut -c8- | xargs md5sum)
+	(grep -E '^(INPUT|OUTPUT) ${LATEX_SELF_DEPS_REGEX}$$' <${BUILDDIR}/$(1).fls | cut -d' ' -f2 | sort -u | xargs md5sum)
 endef
 
 # Fake the dependency file for the first run
