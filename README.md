@@ -92,6 +92,23 @@ images are not added as a dependency unless the document actually uses them, so
 they won't be updated and the document will not be rebuilt when an unused image
 changes.
 
+## Different LaTeX engine
+
+Not a rocket science:
+
+```make
+LATEX=xelatex
+$(call latex, example.tex)
+```
+
+However, you need to set the variable *prior* to calling latex. On the other
+hand, this means you can build documents with different LaTeX engines with the
+same Makefile!
+
+The engine does not even have to be LaTeX. Simple tests show that the system
+works with plain TeX as well, but I have not used it on real projects yet
+(mainly because no complicated system is needed for plain TeX documents...).
+
 ## Extending simply
 
 Whenever you have something to build together with the file, and you don't want
