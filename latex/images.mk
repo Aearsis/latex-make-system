@@ -35,7 +35,7 @@ ${BUILDDIR}/.images.dep:
 # For every directory, target suffix and source suffix, find files and output matches
 define find-images
 $(foreach suff,$(IMAGES_FORMATS_$(1)), \
-	find $(2) -iname '*.$(suff)' | sed -r 's#^(.*)\.$(suff)$$#${BUILDDIR}/.images.exist: | ${BUILDDIR}/\1.$(1)#'; \
+	find -L $(2) -iname '*.$(suff)' | sed -r 's#^(.*)\.$(suff)$$#${BUILDDIR}/.images.exist: | ${BUILDDIR}/\1.$(1)#'; \
 )
 endef
 
