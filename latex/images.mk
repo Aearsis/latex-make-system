@@ -61,6 +61,7 @@ ${BUILDDIR}/%.pdf: %.eps
 	${Q}$(call inform,epstopdf)
 	${Q}mkdir -p $(dir $@)
 	${Q}${chronic} epstopdf --outfile=$@ $<
+IMAGES_FORMATS_pdf += eps
 endif
 
 ifneq ($(call installed,asy),)
