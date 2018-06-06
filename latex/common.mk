@@ -60,7 +60,7 @@ endif
 
 # Regex selector of lists
 LATEX_SELF_DEPS_REGEX = .*\.($(subst $(eval) ,|,${LATEX_SELF_DEPS}))
-LATEX_AUTO_DEPS_REGEX = .*\.($(subst $(eval) ,|,${LATEX_AUTO_DEPS}))
+LATEX_AUTO_DEPS_REGEX = .*\/.*\.($(subst $(eval) ,|,${LATEX_AUTO_DEPS}))
 
 ################################################################################
 #                     The repeated build framework                             #
